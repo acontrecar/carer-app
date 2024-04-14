@@ -92,11 +92,13 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-    if (!this.myForm.invalid) {
+    if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
       return;
     }
 
-    const {} = this.myForm.value;
+    console.log(this.myForm.value);
+    this.myForm.reset();
+    // const {} = this.myForm.value;
   }
 }

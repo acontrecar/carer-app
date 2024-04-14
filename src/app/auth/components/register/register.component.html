@@ -62,9 +62,14 @@
       />
     </label>
 
-    <div>
-      <input type="submit" value="Register" />
-      <a routerLink="/">No tienes cuenta? Registrate</a>
+    <div class="space_submit flex-column">
+      <input
+        class="btn_submit"
+        type="submit"
+        value="Register"
+        [disabled]="myForm.invalid"
+      />
+      <a class="subtitle_acount" routerLink="/">Ya tienes cuenta? Logeate</a>
     </div>
   </form>
 </section>

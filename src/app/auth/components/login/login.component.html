@@ -6,6 +6,8 @@
     </p>
   </div>
 
+  <button (click)="ver()">Hola</button>
+
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form mt-10">
     @if (!isCorrectUser()) {
     <span class="field_error mb-10">Correo o contrasenia invalidos</span>

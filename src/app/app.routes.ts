@@ -17,8 +17,8 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    canActivate: [privateGuard],
     component: HomeLayoutComponent,
+    canActivate: [privateGuard],
     children: [
       {
         path: '',

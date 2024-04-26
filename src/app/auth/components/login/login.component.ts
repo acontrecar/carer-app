@@ -15,6 +15,7 @@ import { AuthService } from '../../../core/services/auth.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AutoDestroyService } from '../../../core/services/auto-destroy.service';
 import { takeUntil } from 'rxjs';
+import { AuthStatus } from '../../../core/enum';
 
 @Component({
   selector: 'auth-login',
@@ -38,6 +39,9 @@ export class LoginComponent {
   });
   public isCorrectUser = signal<boolean>(true);
 
+  ver(): void {
+    this.authService.checkStatus();
+  }
   onSubmit(): void {
     if (this.myForm.invalid) return;
 
@@ -48,14 +52,11 @@ export class LoginComponent {
       .pipe(takeUntil(this.autoDestroyService))
       .subscribe({
         next: () => {
-          console.log('Bien');
           this.isCorrectUser.set(true);
           this.router.navigate(['/home']);
         },
         error: (error) => {
-          // alert(error.error.message);
           this.isCorrectUser.set(false);
-          console.log(this.isCorrectUser());
         },
       });
   }
